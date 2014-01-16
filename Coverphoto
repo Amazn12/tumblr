@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+<head>
+<title>{Title}</title>
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+
+
+
+<!-- DEFAULT VARIABLES -->
+
+<meta name="color:Sidebar" content="#ffffff"/>
+<meta name="color:Content Background" content="#ffffff"/>
+<meta name="color:Bottom Bar" content="#cb4c4c"/>
+
+
+<meta name="color:Title" content="#ffffff"/>
+<meta name="color:Name" content="#747474"/>
+<meta name="color:Text" content="#a3a3a3"/>
+<meta name="color:Navigation" content="#ffffff"/>
+<meta name="font:Body" content="arial"/>
+
+<meta name="color:Link" content="#747474"/>
+<meta name="color:Link Hover" content="#a3a3a3"/>
+
+<meta name="image:Cover Photo" content""/>
+<meta name="image:Profile Pic" content""/>
+
+<meta name="text:Link 1 Name" content=""/>
+<meta name="text:Link 1 URL" content=""/>
+
+<meta name="text:Link 2 Name" content=""/>
+<meta name="text:Link 2 URL" content=""/>
+
+<meta name="text:Link 3 Name" content=""/>
+<meta name="text:Link 3 URL" content=""/>
+
+
+<style type="text/css">
+
+::-webkit-scrollbar {
+    height:12px;
+    width:7px;
+    background-color: #fff;
+    }
+ 
+::-webkit-scrollbar-thumb:vertical {
+    height: 12px;
+    background-color: {color:Bottom Bar};
+    background-repeat:no-repeat;
+    border: 1px solid #colorcode;
+    background-position:center;
+    }
+
+
+body {
+background-color:{color:Background};
+background-image:url(http://static.tumblr.com/zobw21g/Qzjmr954m/csa_cover_photo_background.png);
+background-attachment: fixed;
+color:{color:Text};
+font-size:11px;
+line-height:15px;
+font-family:{font:body};
+margin: 0;
+padding: 0;
+}
+
+a, a:visited, a:active {
+color:{color:Link};
+text-decoration: none;
+}
+
+a:hover {
+color:{color:link hover};
+text-decoration:none;
+}
+
+p { 
+margin: 2px 2px 2px 2px; 
+line-height:10px; 
+padding: 0; 
+}
+
+
+ol.notes {
+padding: 0px;
+margin: 25px 0px;
+list-style-type: none;
+border-bottom: dashed 1px {color:text};
+}
+
+ol.notes li.note {
+border-top: dashed 1px {color:text};
+padding: 10px;
+}
+
+ol.notes li.note img.avatar {
+margin-right: 10px;
+width: 20px;
+height: 20px;
+}
+
+iframe, img, embed, object, video{
+	max-width: 100%;
+}
+img{
+	opacity: .90;
+	height: auto;
+	width: auto;
+}
+img:hover{
+	opacity: 1;
+}
+
+.photoset:hover{
+	opacity: 1;
+}
+
+#header{
+	position: absolute;
+	height: 300px;
+	width:100%;
+	overflow:hidden;
+	z-index: 0;
+}
+#header img{
+	width: 100%;
+}
+#navi{
+	position: absolute;	
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	height: 75px;
+	width: 100%;
+	background-color: black;
+	opacity: 0.50;
+	word-spacing: 40px;
+	z-index: 1;
+}
+#navicontent{
+	position: absolute;
+	right:10%;
+	top: 30%;
+	line-height: 30px;
+}
+
+#navicontent a{
+	overflow: hidden;
+	display: inline-block;
+	margin-bottom: -14px; 
+	font-size: 14px;
+	font-family:{font:body};
+	color: {color:Navigation};
+	letter-spacing: 1px;
+	position: relative;
+	transition: all .3s;
+}
+
+#navicontent a:after, #navicontent a:before {
+	transition: all .3s; /* Once again, vendor prefixes required. */
+}
+
+#navicontent a:before{
+	content: "";
+	position: absolute;
+	left: -100%;
+	bottom: 0;
+	display: block;
+	width: 100%;
+	height: 2px;
+	background-color: {color:Navigation};
+
+}
+#navicontent a:hover:before{
+	color:{color:Navigation Hover};
+	left: 0;
+
+}
+#navititle{
+	position: absolute;
+	float:left;
+	left: 5%;
+	margin: 0;
+	padding: 0;
+	font-size:16px;
+	font:{font:title};
+	color:{color:Title};
+	text-transform:uppercase;
+	line-height: 30px;
+	letter-spacing:2px;
+}
+#bar{
+	position: absolute;	
+	top:300px;
+	right:0;
+	bottom:0;
+	left:0;
+	height: 15px;
+	width: 100%;
+	background-color: {color:Bottom Bar};
+	word-spacing: 40px;
+	z-index: 1;
+}
+
+#sidebar{
+	position: fixed;
+	height: 45%;
+	left:80px;
+	bottom: 1px;
+	width: 240px;
+	padding: 15px;
+	background-color:{color:Sidebar};
+	font-color:{color:text};
+	overflow: auto;
+}
+#sidebar img{
+	max-width: 200px;
+	max-height: 55%
+}
+
+#content{
+	position:absolute;
+	top:325px;
+	left:400px;
+	width:800px;
+	padding:10px;
+	}
+
+article{
+	width: 38%;
+	margin: 10px;
+	padding: 3%;
+}
+article .inner{
+	display: inline-block;
+	margin-bottom: 5px;
+	background-color: {color:Content Background};
+	padding: 10px 20px 20px 20px;
+	max-width: 100%;
+	min-width: 300px;
+	opacity: .90;
+	 -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+}
+
+article .inner:hover {
+  -webkit-transform: rotate(-10deg);
+     -moz-transform: rotate(-10deg);
+       -o-transform: rotate(-10deg);
+      -ms-transform: rotate(-10deg);
+          transform: rotate(-10deg);
+}
+
+.metadata {
+    display: inline-block;
+    width: 100%;
+	text-align: center;
+}
+
+#pagination a{
+	color: {color:Navigation};
+	font-family: {font:body};
+	font-size: 14px;
+	letter-spacing: 1px;
+}
+#pagination a:hover{
+	color:{color:Navigation Hover};
+	letter-spacing: 2px;
+}
+
+.title{
+	text-align: center;
+	text-transform: uppercase;
+}
+
+
+{block:PermalinkPage}
+	article{
+		width: 85%;
+		text-align: center;
+	}
+	article .inner{
+		display: inline-block;
+		margin-bottom: 5px;
+		background-color: {color:Content Background};
+		padding: 10px 20px 20px 20px;
+		max-width: 100%;
+		min-width: 350px;
+		opacity: .90;
+	}
+	article .inner:hover{
+		-webkit-transform: rotate(0deg);
+     -moz-transform: rotate(0deg);
+       -o-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+	}
+	#textbody{
+		text-align: left;
+	}
+{/block:PermalinkPage}
+
+
+{CustomCSS}
+
+</style>
+</head>
+
+<body>
+
+<div id="header">
+	<img src="{image:Cover Photo}"/>
+
+	<div id="navi">
+		<div id="navititle">
+			<h1>{Title}</h1>
+		</div>
+		<div id="navicontent">
+			<a href="/" class="underline">Home</a>
+			<a href="/archive" class="underline">Archive</a>
+			<a href="/ask" class="underline">Ask</a>
+			{block:IfLink1Name}<a href="{text:link 1 url}">{text:link 1 name}</A>{/block:IfLink1Name}
+			{block:IfLink2Name}<a href="{text:link 2 url}">{text:link 2 name}</A>{/block:IfLink2Name}
+			{block:IfLink3Name}<a href="{text:link 3 url}">{text:link 3 name}</A>{/block:IfLink3Name}
+		</div>
+	</div>
+</div>
+<div id="bar"></div>
+<div id="sidebar">
+	<center><img src="{image:Profile Pic}"/></center><br>
+	{block:Description}{Description}{/block:Description}
+</div>
+
+<div id="content">
+	{block:Posts}
+		<article>
+			{block:Text}
+				<div class="text inner">
+					{block:Title}
+						<h2 class="title"><a href="{Permalink}">{Title}</a></h2>
+					{/block:Title}
+					<div id="textbody">
+					{Body}
+					</div>
+			{/block:Text}
+			
+			{block:Photo}
+				<div class="photo inner ">
+					{LinkOpenTag}
+						<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+					{LinkCloseTag}
+					{block:Caption}{Caption}{/block:Caption}
+			{/block:Photo}
+			
+			{block:Photoset}
+				<div class="photoset inner ">
+					<center>{block:IndexPage}{Photoset-250}{/block:IndexPage}</center>
+					{block:PermalinkPage}{Photoset-700}{/block:PermalinkPage}
+					{block:Caption}{Caption}{/block:Caption}
+			{/block:Photoset}
+			
+			{block:Quote}
+				<div class="quote inner">
+					<h2 class="title">"{Quote}"</h2>
+					{block:Source}
+						-{Source}
+					{/block:Source}
+			{/block:Quote}
+			
+			{block:Link}
+				<div class="link inner">
+					<h2 class="title"><a href="{URL}">{Name}</a></h2>
+					{block:Description}
+						{Description}
+					{/block:Description}
+			{/block:Link}
+			
+			{block:Chat}
+				<div class="chat inner">
+					{block:Title}<h2 class="title"><a href="{Permalink}">{Title}</a></h2>{block:Title}
+					{block:Lines}
+						{block:Label}
+							<b>{Label}</b>
+						{/block:Label}
+						{Line} <br>
+					{/block:Lines}
+			{/block:Chat}
+			{block:Audio}
+				<div class="audio inner">
+					{block:Artist}
+						<h2 class="title"><a href ="{Permalink}">{Artist} - {block:TrackName}{TrackName}{/block:TrackName}</a></h2>
+					{/block:Artist}
+					{block:AlbumArt}
+						<img src="{AlbumArtURL}" width="100" height="100"/>
+					{/block:AlbumArt}
+					{AudioPlayerWhite}
+					{block:Caption}
+						{Caption}
+					{/block:Caption}
+			{block:Audio}
+			{block:Video}
+				<div class="video inner">
+					{Video-500}
+					{block:Caption}{Caption}{/block:Caption}
+			{/block:Video}
+			{block:Answer}
+				<div class="answer inner">
+					<img src="{AskerPortraitURL-96}"/><p><b>{Asker} - {Question}</b></p>
+					{Answer}
+			{/block:Answer}
+			</div>
+			
+			<footer class="metadata">
+				{block:Date}<a href="{Permalink}">
+					{Month} {DayOfMonth} {Year} {12Hour}:{Minutes}{CapitalAmPm}
+				</a><br>
+				{/block:Date}
+				{block:NoteCount}
+					<a href="{Permalink}">{NoteCountWithLabel}</a>
+				{/block:NoteCount}
+			</footer>
+			
+			{block:PermalinkPage}
+				<center>
+				{block:RebloggedFrom}
+					Original Post - <a href="{ReblogRootURL}">{ReblogRootName}</a>
+				{/block:RebloggedFrom}
+				{block:PostNotes}
+					<div id="notes">{PostNotes}</div>
+				{/block:PostNotes}
+			{/block:PermalinkPage}
+		</article>
+	{/block:Posts}
+	{block:Pagination}
+		<nav id="pagination">
+			{block:PreviousPage}
+				<a href="{PreviousPage}">Previous</a>
+			{/block:PreviousPage}
+			{block:NextPage}
+				<a href="{NextPage}">Next</a>
+			{/block:NextPage}
+		</nav>
+	{/block:Pagination}
+<br>
+<br>
+</div>
+	
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script src="http://static.tumblr.com/wgijwsy/Ebfm2v4gy/jquery.masonry.min.js"></script>
+<script src="http://static.tumblr.com/wgijwsy/u2vm2hxv6/jquery.infinitescroll.min.js"></script>
+<script src="http://static.tumblr.com/iwtk77u/Yhym2yygt/jquery.imagesloaded.min.js"></script>
+<script>
+	(function(){
+		var $tumblelog=$('#content');
+		 $tumblelog.infinitescroll({
+        navSelector  : "#pagination",            
+        nextSelector : "#pagination a:first",    
+        itemSelector : "article",
+        bufferPx     : 50,
+        done : "",
+        loading: {
+            finishedMsg: "<p> </p>",
+            img : " ",
+            msg: null,
+            msgText: "<p> </p>"
+        },
+    },
+      function( newElements ) {
+            var $newElems = $( newElements ).css({ opacity: 0 });
+            $newElems.imagesLoaded(function(){
+                $newElems.animate({ opacity: 1 });
+                $tumblelog.masonry( 'appended', $newElems);
+            });
+          }
+    );
+		$tumblelog.imagesLoaded(function(){
+			$tumblelog.masonry({
+				columnWidth: function(containerWidth){
+					return containerWidth/100;
+				}
+			});
+		});
+	})();
+</script>
+</body>
+</html>
